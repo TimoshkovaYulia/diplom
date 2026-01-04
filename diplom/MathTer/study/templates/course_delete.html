@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Удалить курс</title>
+    <style>
+        body { background-color: black; color: white; font-family: sans-serif; padding: 20px; }
+        button { padding: 8px 15px; background-color: red; border: none; cursor: pointer; color: white; }
+        a { color: lightblue; text-decoration: none; margin-left: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Удалить курс "{{ course.title }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Удалить</button>
+        <a href="{% url 'course_list' %}">Отмена</a>
+    </form>
+</body>
+</html>

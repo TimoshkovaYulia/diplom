@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Курсы</title>
+    <style>
+        body { background-color: black; color: white; font-family: sans-serif; padding: 20px; }
+        a { color: lightblue; text-decoration: none; margin-right: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 10px; border: 1px solid white; text-align: left; }
+        th { background-color: #222; }
+    </style>
+</head>
+<body>
+    <h1>Курсы</h1>
+    <a href="{% url 'course_create' %}">Добавить новый курс</a>
+    <table>
+        <tr>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Класс</th>
+            <th>Действия</th>
+        </tr>
+        {% for course in courses %}
+        <tr>
+            <td>{{ course.title }}</td>
+            <td>{{ course.description }}</td>
+            <td>{{ course.grade_level }}</td>
+            <td>
+                <a href="{% url 'course_update' course.pk %}">Редактировать</a>
+                <a href="{% url 'course_delete' course.pk %}">Удалить</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

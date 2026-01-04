@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ action }} курс</title>
+    <style>
+        body { background-color: black; color: white; font-family: sans-serif; padding: 20px; }
+        .input-field { display: block; margin-bottom: 15px; width: 300px; padding: 8px; background-color: #222; color: white; border: 1px solid white; }
+        button { padding: 8px 15px; background-color: lightblue; border: none; cursor: pointer; }
+        a { color: lightblue; text-decoration: none; margin-left: 10px; }
+    </style>
+</head>
+<body>
+    <h1>{{ action }} курс</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{{ action }}</button>
+        <a href="{% url 'course_list' %}">Назад</a>
+    </form>
+</body>
+</html>
