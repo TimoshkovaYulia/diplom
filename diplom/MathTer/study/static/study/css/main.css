@@ -1,0 +1,81 @@
+/* Шрифты и базовый стиль */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}
+
+/* Градиентный фон Hero */
+.hero {
+    min-height: 90vh;
+    background: linear-gradient(135deg,#001f4d 0%,#0055cc 100%);
+    overflow: hidden;
+}
+
+.hero-title {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 3rem;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+}
+
+/* Кнопки */
+.hero-buttons .btn {
+    min-width: 180px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.hero-buttons .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Карточки */
+.card {
+    border-radius: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+/* Фоны секций */
+.bg-gradient-support {
+    background: linear-gradient(135deg,#e0f0ff 0%,#c0e0ff 100%);
+}
+.bg-gradient-light {
+    background: linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%);
+}
+.final-cta {
+    background: linear-gradient(135deg,#001f4d 0%,#0055cc 100%);
+}
+
+/* Hero canvas */
+#hero-bg {
+    z-index: 0 !important;
+}
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Адаптивность кнопок */
+@media (max-width: 600px) {
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+}
+
+/* Заголовки секций */
+.section-title {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}

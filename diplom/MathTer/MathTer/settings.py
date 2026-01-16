@@ -117,4 +117,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / 'study/static']
 
+
+AUTH_USER_MODEL = "study.User"
+
+LOGIN_URL = "study:login"
+LOGIN_REDIRECT_URL = "study:dashboard_redirect"
+LOGOUT_REDIRECT_URL = "study:home"

@@ -1,0 +1,15 @@
+<form method="post">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        {{ form.username }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.password }}
+    </div>
+
+    <button class="btn btn-primary w-100 btn-lg">
+        Войти
+    </button>
+</form>

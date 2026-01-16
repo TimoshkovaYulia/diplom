@@ -1,0 +1,82 @@
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Регистрация — MathTer</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'study/css/dashboard.css' %}">
+</head>
+
+<body class="auth-bg">
+
+<div class="auth-wrapper">
+    <div class="auth-card shadow-lg">
+        <h2 class="fw-bold mb-2">Добро пожаловать в MathTer</h2>
+        <p class="text-muted mb-4">Начните обучение математике уже сегодня</p>
+
+        <form>
+            <div class="mb-3">
+                <input type="email" class="form-control" placeholder="Email">
+            </div>
+            <div class="mb-3">
+                <input type="password" class="form-control" placeholder="Пароль">
+            </div>
+            <div class="mb-3">
+                <input type="password" class="form-control" placeholder="Повторите пароль">
+            </div>
+
+            <div class="role-switch mb-4">
+                <label>
+                    <input type="radio" name="role" checked>
+                    <span>Ученик</span>
+                </label>
+                <label>
+                    <input type="radio" name="role">
+                    <span>Учитель</span>
+                </label>
+            </div>
+
+            <button class="btn btn-primary w-100 btn-lg">Создать аккаунт</button>
+        </form>
+
+        <div class="mt-3 text-center">
+            <a href="#" class="text-decoration-none">Уже есть аккаунт? Войти</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html> -->
+
+<form method="post">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        {{ form.username }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.password1 }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.password2 }}
+    </div>
+
+    <div class="role-switch mb-4">
+        {% for radio in form.role %}
+            <label>
+                {{ radio.tag }}
+                <span>{{ radio.choice_label }}</span>
+            </label>
+        {% endfor %}
+    </div>
+
+    <button class="btn btn-primary w-100 btn-lg">
+        Создать аккаунт
+    </button>
+</form>

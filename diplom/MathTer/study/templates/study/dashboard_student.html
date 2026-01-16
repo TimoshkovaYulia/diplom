@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Личный кабинет — Ученик</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'study/css/dashboard.css' %}">
+</head>
+
+<body class="dashboard-bg">
+
+<div class="container py-5">
+    <h2 class="fw-bold text-white mb-4">Привет, Алексей 👋</h2>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="dash-card">
+                <h5>Продолжить обучение</h5>
+                <p>Алгебра · Линейные уравнения</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="dash-card">
+                <h5>Домашние задания</h5>
+                <p>2 задания ожидают выполнения</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="dash-card">
+                <h5>Темы для повторения</h5>
+                <p>Дроби, проценты</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5 g-4">
+        <div class="col-md-6">
+            <div class="dash-card">
+                <h5>Прогресс обучения</h5>
+                <div class="progress mt-3">
+                    <div class="progress-bar" style="width: 68%">68%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="dash-card">
+                <h5>Рекомендации</h5>
+                <ul>
+                    <li>Повторить квадратные уравнения</li>
+                    <li>Решить задания повышенной сложности</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

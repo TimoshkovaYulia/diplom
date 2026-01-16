@@ -1,0 +1,62 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Фоны */
+.auth-bg,
+.dashboard-bg {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #001f4d, #0055cc);
+}
+
+/* Auth */
+.auth-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.auth-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+}
+
+/* Переключатель роли */
+.role-switch {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.role-switch label {
+    cursor: pointer;
+}
+.role-switch input {
+    display: none;
+}
+.role-switch span {
+    padding: 8px 18px;
+    border-radius: 20px;
+    background: #eef3ff;
+}
+.role-switch input:checked + span {
+    background: #0055cc;
+    color: white;
+}
+
+/* Dashboard cards */
+.dash-card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    transition: 0.3s;
+    height: 100%;
+}
+.dash-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}

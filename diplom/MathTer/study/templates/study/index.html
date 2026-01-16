@@ -1,0 +1,286 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MathTer — Обучение математике</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'study/css/main.css' %}">
+</head>
+<body>
+
+<!-- Hero Section -->
+<section class="hero d-flex align-items-center justify-content-center position-relative text-center text-white">
+    <div class="container hero-content">
+        <h1 class="display-4 fw-bold mb-3 hero-title">MathTer — учись математике с увлечением</h1>
+        <p class="lead mb-4 hero-subtitle">Курсы, задания, прогресс и умная поддержка</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3 hero-buttons">
+            <a href="{% url 'study:register' %}" class="btn btn-primary btn-lg shadow hero-btn">Начать обучение</a>
+            <a href="#features" class="btn btn-outline-light btn-lg shadow hero-btn">Посмотреть возможности</a>
+        </div>
+    </div>
+    <canvas id="hero-bg" class="position-absolute top-0 start-0 w-100 h-100"></canvas>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="py-5 text-center text-white">
+    <div class="container">
+        <h2 class="mb-5 fw-bold section-title">Основные возможности платформы</h2>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-3 col-sm-6">
+                <div class="card feature-card h-100 p-4 text-center">
+                    <h5 class="fw-semibold">Курсы по классам (5–11)</h5>
+                    <p class="text-muted">Полное покрытие школьной программы с практическими примерами.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card feature-card h-100 p-4 text-center">
+                    <h5 class="fw-semibold">Решение заданий онлайн</h5>
+                    <p class="text-muted">Практика прямо в браузере с подсказками и проверкой.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card feature-card h-100 p-4 text-center">
+                    <h5 class="fw-semibold">Отслеживание прогресса</h5>
+                    <p class="text-muted">Графики роста знаний, достижения и рекомендации.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card feature-card h-100 p-4 text-center">
+                    <h5 class="fw-semibold">Работа с группами</h5>
+                    <p class="text-muted">Создание групп, домашние задания, контроль учителя.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Smart Support Section -->
+<section class="py-5 text-center text-dark bg-gradient-support">
+    <div class="container">
+        <h2 class="mb-5 fw-bold section-title">Умная поддержка обучения</h2>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-3 col-sm-6">
+                <div class="card support-card h-100 p-4 text-center">
+                    <h5 class="fw-semibold">Анализ ошибок</h5>
+                    <p class="text-muted">Подскажет, где возникла ошибка и как исправить.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card support-card h-100 p-4 text-center">
+                    <h5 class="fw-semibold">Объяснения решений</h5>
+                    <p class="text-muted">Пошаговые комментарии к каждому заданию.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card support-card h-100 p-4 text-center">
+                    <h5 class="fw-semibold">Рекомендации по темам</h5>
+                    <p class="text-muted">Персональные советы по укреплению знаний.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card support-card h-100 p-4 text-center">
+                    <h5 class="fw-semibold">Определение пробелов</h5>
+                    <p class="text-muted">Показывает, где нужно подтянуть знания.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Courses Section -->
+<section id="courses" class="py-5 text-center text-white">
+    <div class="container">
+        <h2 class="mb-5 fw-bold section-title">Курсы по классам</h2>
+        <div class="row g-4 justify-content-center">
+            {% for grade in grades %}
+            <div class="col-md-3 col-sm-6">
+                <div class="card course-card h-100 p-4 text-center">
+                    <h3 class="fw-bold">{{ grade }} класс</h3>
+                    <p class="text-light">Примеры тем и уровни сложности</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Role Tabs Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="mb-5 fw-bold text-center section-title">
+            Для учеников и учителей
+        </h2>
+
+        <!-- Tabs -->
+        <ul class="nav nav-pills justify-content-center mb-4" id="roleTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active px-4"
+                        id="student-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#student"
+                        type="button"
+                        role="tab">
+                    👨‍🎓 Ученикам
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link px-4"
+                        id="teacher-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#teacher"
+                        type="button"
+                        role="tab">
+                    👩‍🏫 Учителям
+                </button>
+            </li>
+        </ul>
+
+        <!-- Tab content -->
+        <div class="tab-content" id="roleTabsContent">
+
+            <!-- ===== Ученикам ===== -->
+            <div class="tab-pane fade show active" id="student" role="tabpanel">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-body p-4 p-md-5">
+
+                                <h3 class="mb-3">
+                                    Учись в своём темпе с поддержкой ИИ
+                                </h3>
+
+                                <p class="text-muted mb-4">
+                                    Платформа помогает ученикам 5–11 классов не просто решать задачи,
+                                    а понимать свои ошибки и выстраивать индивидуальную траекторию обучения.
+                                </p>
+
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-2">
+                                        <i class="bi bi-check-circle text-success me-2"></i>
+                                        Курсы по классам <strong>5–11</strong>, разбитые на темы с заданиями
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check-circle text-success me-2"></i>
+                                        Вводный тест для определения уровня знаний
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check-circle text-success me-2"></i>
+                                        Решение заданий прямо в веб-приложении
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check-circle text-success me-2"></i>
+                                        Проверка решений ИИ с указанием типа ошибки
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check-circle text-success me-2"></i>
+                                        Объяснение правильного решения шаг за шагом
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check-circle text-success me-2"></i>
+                                        Отдельный чат с ИИ для любых задач и вопросов
+                                    </li>
+                                    <li>
+                                        <i class="bi bi-check-circle text-success me-2"></i>
+                                        Личный кабинет с рекомендациями, стилем обучения и прогрессом
+                                    </li>
+                                </ul>
+
+                                <div class="d-grid d-sm-flex gap-2">
+                                    
+                                     <a class="btn btn-primary btn-lg">
+                                        Начать обучение
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== Учителям ===== -->
+            <div class="tab-pane fade" id="teacher" role="tabpanel">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-body p-4 p-md-5">
+
+                                <h3 class="mb-3">
+                                    Контролируйте обучение без лишней рутины
+                                </h3>
+
+                                <p class="text-muted mb-4">
+                                    Платформа автоматизирует проверку заданий и помогает
+                                    глубже анализировать результаты учеников.
+                                </p>
+
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-2">
+                                        <i class="bi bi-check-circle text-primary me-2"></i>
+                                        Регистрация с ролью «учитель»
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check-circle text-primary me-2"></i>
+                                        Создание групп учеников с доступом по ссылке
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check-circle text-primary me-2"></i>
+                                        Назначение домашних заданий для групп
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check-circle text-primary me-2"></i>
+                                        Поддержка тестов и открытых ответов
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check-circle text-primary me-2"></i>
+                                        Автоматическая проверка по загруженным ответам
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check-circle text-primary me-2"></i>
+                                        Анализ типичных ошибок учеников
+                                    </li>
+                                    <li>
+                                        <i class="bi bi-check-circle text-primary me-2"></i>
+                                        Выгрузка отчётов в <strong>.PDF</strong> и <strong>.XLS</strong>
+                                    </li>
+                                </ul>
+
+                                <div class="d-grid d-sm-flex gap-2">
+                                    <a 
+                                       class="btn btn-outline-dark btn-lg">
+                                        Создать группу
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Final CTA -->
+<section class="py-5 text-center text-white final-cta">
+    <div class="container">
+        <h2 class="mb-4 fw-bold">Начните обучение с MathTer сегодня!</h2>
+        <a href="{% url 'study:register' %}" class="btn btn-light btn-lg shadow hero-btn">Зарегистрироваться</a>
+    </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'study/js/main.js' %}"></script>
+</body>
+</html>
